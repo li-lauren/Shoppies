@@ -36,6 +36,8 @@ class Nomination(db.Model):
     nomination_id: int
     title: str
     release_year: str
+    poster: str
+    imdb_id: str
     nominator: int
     
     __tablename__ = "nominations"
@@ -45,6 +47,8 @@ class Nomination(db.Model):
                               primary_key=True)
     title: db.Column(db.String, nullable=False)
     release_year: db.Column(db.String)
+    poster: db.Column(db.String)
+    imdb_id: db.Column(db.String)
 
     # id of user who nominated the movie
     nominator: db.Column(db.Integer, db.ForeignKey("users.user_id"))
