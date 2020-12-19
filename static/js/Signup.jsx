@@ -50,7 +50,7 @@ const Signup = () => {
 
     return (
         <div>
-            <form onSubmit={signUp}>
+            <form onSubmit={signup}>
                 <label>First Name</label>
                 <input 
                     type="text" 
