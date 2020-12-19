@@ -77,8 +77,8 @@ const Signup = () => {
                 <label>Password</label>
                 <input 
                     type="password" 
-                    name="pw" 
-                    value={userInput.pw} 
+                    name="password" 
+                    value={userInput.password} 
                     onChange={handleChange} 
                 />
                 <br/>
