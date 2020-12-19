@@ -89,6 +89,8 @@ const Signup = () => {
 
                 <button type="submit">Become a Shoppie Judge</button>
             </form> 
+            <p>{successMsg}</p>
+            <p>{errorMsg}</p>
         </div>
     )
 }
