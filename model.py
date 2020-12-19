@@ -13,7 +13,6 @@ class User(db.Model):
     lname: str
     email: str
     password: str
-    img: str
 
     __tablename__ = "users"
 
@@ -45,13 +44,13 @@ class Nomination(db.Model):
     nomination_id = db.Column(db.Integer, 
                               autoincrement=True, 
                               primary_key=True)
-    title: db.Column(db.String, nullable=False)
-    release_year: db.Column(db.String)
-    poster: db.Column(db.String)
-    imdb_id: db.Column(db.String)
+    title = db.Column(db.String, nullable=False)
+    release_year = db.Column(db.String)
+    poster = db.Column(db.String)
+    imdb_id = db.Column(db.String)
 
     # id of user who nominated the movie
-    nominator: db.Column(db.Integer, db.ForeignKey("users.user_id"))
+    nominator = db.Column(db.Integer, db.ForeignKey("users.user_id"))
 
     def __repr__(self):
         return f"<Nomination nomination_id={self.nomination_id} title={self.title}>"
