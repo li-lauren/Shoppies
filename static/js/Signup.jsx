@@ -1,3 +1,5 @@
+// Signup form for users to become Shoppie judges
+
 const Signup = () => {
     const [userInput, setUserInput] = useReducer(
         (state, newState) => ({...state, ...newState}),
@@ -34,8 +36,10 @@ const Signup = () => {
         .then(res => res.json())
         .then(data => {
             if (data.successMsg) {
+                // user created
                 setSuccessMsg(data.success_msg);
             } else {
+                // error in creating user
                 setErrorMsg(data.error_msg);
             }; 
             
