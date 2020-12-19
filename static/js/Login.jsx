@@ -25,10 +25,7 @@ const Login = ({setLoggedIn}) => {
             headers: {
                 'Content-Type':'application/json'
             }, 
-            body: JSON.stringify({
-                'email': userInput.email,
-                'password': userInput.password
-            })
+            body: JSON.stringify(userInput)
         };
 
         fetch('/login', reqOptions)
