@@ -1,6 +1,7 @@
 """Models for Spotify App."""
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
+from dataclasses import dataclass
 
 db = SQLAlchemy()
 
