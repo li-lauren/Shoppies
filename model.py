@@ -12,7 +12,7 @@ class User(db.Model):
     fname: str
     lname: str
     email: str
-    pw: str
+    password: str
     img: str
 
     __tablename__ = "users"
@@ -24,7 +24,7 @@ class User(db.Model):
     fname = db.Column(db.String(50), nullable=False)
     lname = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
-    pw = db.Column(db.String(30), nullable=False)
+    password = db.Column(db.String(30), nullable=False)
 
     def __repr__(self):
         return f'<User user_id={self.user_id} email={self.email}>'
