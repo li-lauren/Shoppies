@@ -11,6 +11,23 @@ def get_user_by_email(email):
 
     return User.query.filter(User.email == email).first()
 
+
+def create_user(fname, lname, email, password):
+    """Create a new user."""
+
+    user = User(
+        fname = fname,
+        lname = lname,
+        email = email,
+        password = password
+    )
+
+    db.session.add(user)
+    db.session.commit()
+
+    return user
+
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
