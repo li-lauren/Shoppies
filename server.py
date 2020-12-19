@@ -44,7 +44,32 @@ def login():
     else:
         # No user found in DB
         login_results["error"] = "No user associated with that email."
-        
+
+    return jsonify(login_results)
+
+
+@app.route("/users", methods=['POST'])
+def user_signup():
+    fname = request.json.get("fname")
+    lname = request.json.get("lname")
+    email = request.json.get("email")
+    password = request.json.get("password")
+
+    signup_res = {
+        "success_msg": "", 
+        "error_msg": ""
+    }
+
+    if crud.get_user_by_email(email):
+        # user already exists
+        signup_res["error_msg"] = "A user already exists with that email."
+    else:
+        # add user to database
+        crud.create_user(fname, lname, email, password)
+        signup_res["success_msg"] = "Welcome to the Shoppies!"
+
+    return signup_res
+
 
 if __name__ == '__main__':
     connect_to_db(app)
