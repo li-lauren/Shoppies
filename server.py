@@ -48,6 +48,13 @@ def login():
     return jsonify(login_results)
 
 
+@app.route("/logout")
+def logout():
+    """User Logout / Remove from Session."""
+
+    session.pop("user_id", None)
+
+
 @app.route("/users", methods=['POST'])
 def user_signup():
     fname = request.json.get("fname")
