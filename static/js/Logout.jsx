@@ -9,9 +9,11 @@ const Logout = ({setLoggedIn}) => {
             headers: {
                 'Content-Type':'application/json'
             }, 
-            body: JSON.stringify(localStorage.getItem('nominatedMovieIDs'))
+            body: JSON.stringify(
+                {'nominatedMovieIDs' : localStorage.getItem('nominatedMovieIDs')}
+            )
         };
-        
+
         fetch('/logout', reqOptions)
         .then(res => res.text())
         .then(data => {
