@@ -79,6 +79,15 @@ def user_signup():
     return signup_res
 
 
+@app.route("/search/<movie_search_term>")
+def search_for_movies(movie_search_term):
+    """Search for and return movies by title."""
+
+    movies = crud.get_movies_by_title(movie_search_term)
+
+    return {'movies': movies}
+
+
 if __name__ == '__main__':
     connect_to_db(app)
     app.run(host='0.0.0.0', debug=True)
