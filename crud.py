@@ -34,10 +34,10 @@ def create_user(fname, lname, email, password):
 ### MOVIE CRUD OPS ###
 
 def get_movies_by_title(movie_search_term):
-    url = f"http://www.omdbapi.com/?s={movie_search_term}&apikey={OMDB_KEY}"
+    url = f"http://www.omdbapi.com/?s={movie_search_term}&type=movie&apikey={OMDB_KEY}"
 
     response = requests.get(url)
-
+    print(response)
     return response
 
 
