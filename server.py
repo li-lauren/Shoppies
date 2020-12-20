@@ -57,6 +57,7 @@ def logout():
 
 @app.route("/users", methods=['POST'])
 def user_signup():
+    """Register a new user."""
     fname = request.json.get("fname")
     lname = request.json.get("lname")
     email = request.json.get("email")
