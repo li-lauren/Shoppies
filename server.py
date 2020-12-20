@@ -85,7 +85,7 @@ def search_for_movies(movie_search_term):
 
     movies = crud.get_movies_by_title(movie_search_term)
 
-    return {'movies': movies}
+    return movies
 
 
 if __name__ == '__main__':

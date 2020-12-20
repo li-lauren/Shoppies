@@ -9,7 +9,11 @@ const MovieSearch = () => {
 
         fetch(`/search/${searchTerm}`)
         .then(res => res.json())
-        .then(data => setSearchRes(data));
+        .then(data => {
+            console.log(data)
+            console.log(data.Search)
+            setSearchRes(data.Search)
+        });
     };
 
     const handleChange = e => {
@@ -29,7 +33,8 @@ const MovieSearch = () => {
 
             {/* Movie Search Results */}
             {searchRes.map(movie => {
-                console.log(movie)
+                return console.log(movie)
+                
             })}
 
         </div>
