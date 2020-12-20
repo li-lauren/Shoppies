@@ -32,10 +32,9 @@ const MovieSearch = () => {
             </form>
 
             {/* Movie Search Results */}
-            {searchRes.map(movie => {
-                return console.log(movie)
-                
-            })}
+            {searchRes.map(movie => 
+                <MovieListing movie={movie} key={movie.imdbID} />
+            )}
 
         </div>
     );
