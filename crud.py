@@ -3,6 +3,9 @@
 from model import db, connect_to_db, User, Nomination
 
 import os
+import requests
+
+OMDB_KEY = os.environ['OMDB_KEY']
 
 ### USER CRUD OPS ###
 
@@ -26,6 +29,16 @@ def create_user(fname, lname, email, password):
     db.session.commit()
 
     return user
+
+
+### MOVIE CRUD OPS ###
+
+def get_movies_by_title(movie_search_term):
+    url = f"http://www.omdbapi.com/?s={movie_search_term}&apikey={OMDB_KEY}"
+
+    response = requests.get(url)
+
+    return response
 
 
 if __name__ == '__main__':
