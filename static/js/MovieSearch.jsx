@@ -1,19 +1,29 @@
+// Search bar for movies and movie listings for subsequent results
+
 const MovieSearch = () => {
-    const [searchTerm, setSearchTerm] = useState('')
-    const [searchRes, setSearchRes] = useState([])
+    const [searchTerm, setSearchTerm] = useState('');
+    const [searchRes, setSearchRes] = useState([]);
     
-    const searchForMovies = () => {
+    const searchForMovies = e => {
+        e.preventDefault();
+
         fetch(`/search/${searchTerm}`)
         .then(res => res.json())
-        .then(data => setSearchRes(data))
-    }
+        .then(data => setSearchRes(data));
+    };
 
-    
+    const handleChange = e => {
+        setSearchTerm(e.target.value)
+    };
+
     return (
         <div>
             {/* Search Bar */}
             <form onSubmit={searchForMovies}>
-                <input type="text"/>
+                <input 
+                    type="text"
+                    onChange={handleChange}
+                />
                 <input type="submit" style={{display: "none"}}/>
             </form>
 
@@ -23,5 +33,5 @@ const MovieSearch = () => {
             })}
 
         </div>
-    )
+    );
 }
