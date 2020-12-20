@@ -38,7 +38,7 @@ def get_movies_by_title(movie_search_term):
 
     response = requests.get(url)
     print(response)
-    return response
+    return response.json()
 
 
 if __name__ == '__main__':
