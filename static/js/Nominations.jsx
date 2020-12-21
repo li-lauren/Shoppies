@@ -16,7 +16,8 @@ const Nominations = () => {
     return (
         <div>
             <span>Your Nominations</span>
-            {nominations ? nominations.map(nomination => console.log(nomination)) : ''}
+            {nominations ? nominations.map(nomination => 
+                <NominationListing nomination={nomination} />) : ''}
         </div>
     );
 }
