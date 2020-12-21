@@ -46,6 +46,9 @@ const MovieSearch = () => {
                 />
             )}
 
+            {/* Movie Nominations */}
+            <Nominations />
+
         </div>
     );
 }
