@@ -22,7 +22,7 @@ const MovieListing = ({movie}) => {
                 'title' : movie.Title,
                 'year' : movie.Year,
                 'poster' : movie.Poster,
-                'imdb_id' : movid.imdbID
+                'imdb_id' : imdbID
             }
         };
 
@@ -36,16 +36,24 @@ const MovieListing = ({movie}) => {
                 setNominated(true);
 
                 // save nominated movie to local storage
-                localStorage.setItem(movie.imdbID, movie.Title);
+                localStorage.setItem(imdbID, movie.Title);
             };
         });
     };
 
     const unnominateMovie = () => {
-        setNominated(false);
+        fetch(`/nominations/delete/${imdbID}`)
+        .then(res => res.text())
+        .then( data => {
+            if (data === 'Error') {
+                setErrorMsg('Error in removing nomination. Please try again.');
+            } else {
+                setNominated(false);
 
-        // remove movie from local storage
-        localStorage.removeItem(movie.imdbID);
+                // remove movie from local storage
+                localStorage.removeItem(imdbID);
+            };
+        });  
     };
 
     return (
