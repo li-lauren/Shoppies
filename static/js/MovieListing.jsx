@@ -45,7 +45,7 @@ const MovieListing = ({movie}) => {
         fetch(`/nominations/delete/${imdbID}`)
         .then(res => res.text())
         .then( data => {
-            if (data === 'Error') {
+            if (data !== 'Success') {
                 setErrorMsg('Error in removing nomination. Please try again.');
             } else {
                 setNominated(false);
