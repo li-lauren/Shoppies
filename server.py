@@ -27,7 +27,8 @@ def login():
 
     login_results = {
         "user": None, 
-        "err": ""
+        "err": "", 
+        "nominations": None
     }
 
     if user:
@@ -39,6 +40,9 @@ def login():
                 "lname" : user.lname, 
                 "user_id" : user.user_id
             }
+            # check for existing nominations
+            login_results["nominations"] = crud.get_nominations_by_user_id(user.user_id)
+
         else:
             login_results["error"] = "Incorrect password. Please try again."
     else:
