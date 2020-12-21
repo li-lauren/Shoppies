@@ -40,7 +40,7 @@ const Login = ({setLoggedIn}) => {
 
                 if (data.nominations) {
                     // add pre-existing nominations to local storage
-                    for (nomination of data.nominations) {
+                    for (const nomination of data.nominations) {
                         localStorage.setItem(nomination, '');
                     }
                 };
