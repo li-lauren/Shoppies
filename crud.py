@@ -40,6 +40,34 @@ def get_movies_by_title(movie_search_term):
     
     return response.json()
 
+### NOMINATION CRUD OPS ###
+
+def create_nomination(title, release_year, poster, imdb_id, nominator):
+    """Create a nomination."""
+
+    nomination = Nomination(
+        title = title,
+        release_year = release_year,
+        poster = poster,
+        imdb_id = imdb_id,
+        nominator = nominator
+    )
+
+    db.session.add(nomination)
+    db.session.commit()
+
+    return nomination
+
+
+def remove_nomination(imdb_id, nominator):
+
+    nomination = Nomination.query.filter(
+            Nomination.imdb_id == imdb_id, 
+            Nomination.nominator == nominator).first()
+    
+    db.session.delete(nomination)
+    db.session.commit()
+
 
 if __name__ == '__main__':
     from server import app
