@@ -1,6 +1,6 @@
 // Individual movie listing for a movie search result
 
-const MovieListing = ({movie, setNumNominations}) => {
+const MovieListing = ({movie, numNominations, setNumNominations}) => {
     const [nominated, setNominated] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
     const imdbID = movie.imdbID;
@@ -72,7 +72,9 @@ const MovieListing = ({movie, setNumNominations}) => {
                     <button disabled>Nominated</button>
                     <button onClick={unnominateMovie}>Trash</button>
                 </div> : 
-                <button onClick={nominateMovie}>Nominate</button>
+                numNominations === 5 ? 
+                    <button disabled>Nomination Limit Reached</button> :
+                    <button onClick={nominateMovie}>Nominate</button>
             }
 
             { errorMsg ? 

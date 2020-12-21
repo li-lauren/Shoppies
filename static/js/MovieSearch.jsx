@@ -42,6 +42,7 @@ const MovieSearch = () => {
                 <MovieListing
                     key={movie.imdbID} 
                     movie={movie} 
+                    numNominations={numNominations}
                     setNumNominations={setNumNominations} 
                 />
             )}
