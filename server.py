@@ -81,6 +81,17 @@ def nominate_movie():
     return "Success" if nomination else "Error"
 
 
+@app.route("/nominations/delete/<imdb_id>")
+def delete_nomination(imdb_id):
+    """Remove a user's nomination."""
+
+    user_id = session['user_id']
+
+    result = crud.remove_nomination(imdb_id, user_id)
+
+    return "Success" if result else "Errof"
+
+
 @app.route("/users", methods=['POST'])
 def user_signup():
     """Register a new user."""
