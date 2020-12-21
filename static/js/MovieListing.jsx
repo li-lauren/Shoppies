@@ -71,6 +71,10 @@ const MovieListing = ({movie}) => {
                 </div> : 
                 <button onClick={nominateMovie}>Nominate</button>
             }
+
+            { errorMsg ? 
+                <p>{errorMsg}</p> : ''
+            }
         </div>
     )
 }
