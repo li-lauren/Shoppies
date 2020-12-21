@@ -7,6 +7,7 @@ const App = () => {
             { loggedIn ? 
                 <div>
                     <Logout setLoggedIn={setLoggedIn} />
+                    <CompletedNomBanner />
                     <MovieSearch />
                 </div> 
                 : 
