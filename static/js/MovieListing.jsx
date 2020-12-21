@@ -72,6 +72,7 @@ const MovieListing = ({movie, numNominations, setNumNominations}) => {
                     <button disabled>Nominated</button>
                     <button onClick={unnominateMovie}>Trash</button>
                 </div> : 
+                // disable nomination button when nomination limit of 5 is reached
                 numNominations === 5 ? 
                     <button disabled>Nomination Limit Reached</button> :
                     <button onClick={nominateMovie}>Nominate</button>
