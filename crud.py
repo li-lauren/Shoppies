@@ -81,7 +81,7 @@ def remove_nomination(imdb_id, nominator):
 def get_nominations_by_user_id(user_id):
     """Create a list of imdb ids for all of a user's nominated movies."""
 
-    nomination_imdb_ids = db.session.query(Nomination.imdb_id).\
+    nomination_imdb_ids = Nomination.query.\
         filter(Nomination.nominator == user_id).all()
 
     return nomination_imdb_ids
