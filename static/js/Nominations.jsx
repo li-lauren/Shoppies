@@ -17,7 +17,11 @@ const Nominations = () => {
         <div>
             <span>Your Nominations</span>
             {nominations ? nominations.map(nomination => 
-                <NominationListing nomination={nomination} />) : ''}
+                <NominationListing 
+                    nomination={nomination} 
+                    key={nomination.imdb_id}
+                />) : ''
+            }
         </div>
     );
 }
