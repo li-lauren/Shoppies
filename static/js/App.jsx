@@ -6,7 +6,7 @@ const App = () => {
             Shoppies
             { loggedIn ? 
                 <div>
-                    <Logout />
+                    <Logout setLoggedIn={setLoggedIn} />
                     <MovieSearch />
                 </div> 
                 : 

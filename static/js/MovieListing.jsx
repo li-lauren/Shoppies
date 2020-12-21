@@ -15,15 +15,16 @@ const MovieListing = ({movie}) => {
     const nominateMovie = () => {
         
         const reqOptions = {
-            method : 'POST', 
-            header : {
+            method: 'POST', 
+            headers: {
                 'Content-Type' : 'application/json'
-            }, body : {
+            }, 
+            body: JSON.stringify({
                 'title' : movie.Title,
                 'year' : movie.Year,
                 'poster' : movie.Poster,
                 'imdb_id' : imdbID
-            }
+            })
         };
 
         fetch('/nominations', reqOptions)
