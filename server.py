@@ -64,6 +64,15 @@ def logout():
     session.pop("user_id", None)
 
 
+@app.route("/nominations")
+def get_nominations():
+    """Get a list of the user's nominations."""
+
+    nominations = crud.get_nominations_by_user_id(session["user_id"])
+
+    return jsonify(nominations)
+
+
 @app.route("/nominations", methods=['POST'])
 def nominate_movie():
     """Create a movie nomination."""
