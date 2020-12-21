@@ -1,6 +1,6 @@
 // Individual movie listing for a movie search result
 
-const MovieListing = ({movie}) => {
+const MovieListing = ({movie, setNumNominations}) => {
     const [nominated, setNominated] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
     const imdbID = movie.imdbID;
@@ -38,6 +38,7 @@ const MovieListing = ({movie}) => {
 
                 // save nominated movie to local storage
                 localStorage.setItem(imdbID, movie.Title);
+                setNumNominations(localStorage.length);
             };
         });
     };
@@ -53,6 +54,7 @@ const MovieListing = ({movie}) => {
 
                 // remove movie from local storage
                 localStorage.removeItem(imdbID);
+                setNumNominations(localStorage.length);
             };
         });  
     };

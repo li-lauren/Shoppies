@@ -3,6 +3,8 @@
 const MovieSearch = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchRes, setSearchRes] = useState([]);
+
+    const [numNominations, setNumNominations] = useState(localStorage.length);
     
     const searchForMovies = e => {
         e.preventDefault();
@@ -22,6 +24,9 @@ const MovieSearch = () => {
 
     return (
         <div>
+            {/* Banner Displayed When Nomination Limit is Reached */}
+            <CompletedNomBanner numNominations={numNominations} />
+
             {/* Search Bar */}
             <form onSubmit={searchForMovies}>
                 <input 
@@ -33,7 +38,11 @@ const MovieSearch = () => {
 
             {/* Movie Search Results */}
             {searchRes.map(movie => 
-                <MovieListing movie={movie} key={movie.imdbID} />
+                <MovieListing
+                    key={movie.imdbID} 
+                    movie={movie} 
+                    setNumNominations={setNumNominations} 
+                />
             )}
 
         </div>

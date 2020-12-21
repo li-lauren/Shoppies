@@ -1,13 +1,15 @@
 // Banner displayed when the user has finished a certain number of nominations
 // In this case, 5 nominations.
 
-const CompletedNomBanner = () => {
+const CompletedNomBanner = ({numNominations}) => {
     const nominationLimit = 5;
-    const [numNominations, setNumNominations] = useState(localStorage.length);
+    // const [numNominations, setNumNominations] = useState(localStorage.length);
     
     useEffect(() => {
-        setNumNominations(localStorage.length)
-    }, [localStorage.length]);
+        console.log('LOCAL STORAGE CHANGED')
+        console.log(numNominations)
+        // setNumNominations(localStorage.length)
+    }, [numNominations]);
 
     return(
         <React.Fragment>
