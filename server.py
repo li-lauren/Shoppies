@@ -41,7 +41,7 @@ def login():
                 "user_id" : user.user_id
             }
             # check for existing nominations
-            login_results["nominations"] = crud.get_nominations_by_user_id(user.user_id)
+            login_results["nominations"] = crud.get_nomination_imdb_ids(user.user_id)
 
         else:
             login_results["error"] = "Incorrect password. Please try again."
