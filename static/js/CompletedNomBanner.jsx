@@ -3,10 +3,6 @@
 
 const CompletedNomBanner = ({numNominations}) => {
     const nominationLimit = 5;
-    console.log(numNominations)
-    // useEffect(() => {
-    //     console.log(numNominations)
-    // }, [numNominations]);
 
     return(
         <React.Fragment>

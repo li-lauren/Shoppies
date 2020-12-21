@@ -15,8 +15,6 @@ const MovieSearch = () => {
         fetch(`/search/${searchTerm}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            console.log(data.Search)
             setSearchRes(data.Search)
         });
     };
