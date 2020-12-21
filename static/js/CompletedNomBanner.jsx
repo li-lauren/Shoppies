@@ -3,13 +3,10 @@
 
 const CompletedNomBanner = ({numNominations}) => {
     const nominationLimit = 5;
-    // const [numNominations, setNumNominations] = useState(localStorage.length);
-    
-    useEffect(() => {
-        console.log('LOCAL STORAGE CHANGED')
-        console.log(numNominations)
-        // setNumNominations(localStorage.length)
-    }, [numNominations]);
+    console.log(numNominations)
+    // useEffect(() => {
+    //     console.log(numNominations)
+    // }, [numNominations]);
 
     return(
         <React.Fragment>

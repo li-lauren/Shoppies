@@ -4,8 +4,11 @@ const MovieSearch = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchRes, setSearchRes] = useState([]);
 
-    const [numNominations, setNumNominations] = useState(localStorage.length);
+    const [numNominations, setNumNominations] = useState(null);
     
+    // reload after first render, so updated length is stored as numNominations
+    useEffect(() => setNumNominations(localStorage.length), []);
+
     const searchForMovies = e => {
         e.preventDefault();
 
