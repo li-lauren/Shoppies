@@ -61,12 +61,20 @@ def create_nomination(title, release_year, poster, imdb_id, nominator):
 
 def remove_nomination(imdb_id, nominator):
 
+    result = "Success"
+
     nomination = Nomination.query.filter(
             Nomination.imdb_id == imdb_id, 
             Nomination.nominator == nominator).first()
+
+    if not nomination:
+        # no nomination was found
+        result = "No pre-existing nomination."
     
     db.session.delete(nomination)
     db.session.commit()
+
+    return result
 
 
 if __name__ == '__main__':

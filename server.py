@@ -89,7 +89,7 @@ def delete_nomination(imdb_id):
 
     result = crud.remove_nomination(imdb_id, user_id)
 
-    return "Success" if result else "Errof"
+    return result
 
 
 @app.route("/users", methods=['POST'])
