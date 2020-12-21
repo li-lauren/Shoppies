@@ -53,11 +53,32 @@ def logout():
     """User Logout / Remove from Session."""
 
     # Update user's nominated movies
-    user_id = session["user_id"]
-    newest_nominated_movies = request.json.get("nominatedMovieIDs")
-    crud.update_nominated_movies(newest_nominated_movies, user_id)
+    # user_id = session["user_id"]
+    # newest_nominated_movies = request.json.get("nominatedMovieIDs")
+    # crud.update_nominated_movies(newest_nominated_movies, user_id)
 
     session.pop("user_id", None)
+
+
+@app.route("/nominations", methods=['POST'])
+def nominate_movie():
+    """Create a movie nomination."""
+
+    nominator = session["user_id"]
+    title = request.json.get("title")
+    release_year = request.json.get("year")
+    poster = request.json.get("poster")
+    imdb_id = request.json.get("imdb_id")
+
+    nomination = crud.create_nomination(
+        title, 
+        release_year, 
+        poster, 
+        imdb_id, 
+        nominator
+    )
+
+    return "Success" if nomination else "Error"
 
 
 @app.route("/users", methods=['POST'])
