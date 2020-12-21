@@ -3,6 +3,7 @@
 const MovieSearch = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchRes, setSearchRes] = useState([]);
+    const [showSearch, setShowSearch] = useState(true);
 
     const [numNominations, setNumNominations] = useState(null);
     
@@ -28,27 +29,40 @@ const MovieSearch = () => {
             {/* Banner Displayed When Nomination Limit is Reached */}
             <CompletedNomBanner numNominations={numNominations} />
 
-            {/* Search Bar */}
-            <form onSubmit={searchForMovies}>
-                <input 
-                    type="text"
-                    onChange={handleChange}
-                />
-                <input type="submit" style={{display: "none"}}/>
-            </form>
+            {/* Toggle Display Between Search Bar and Nominations */}
+            <p>
+                <span onClick={() => setShowSearch(true)}>Search &#38; Nominate</span>
+                 / 
+                <span onClick={() => setShowSearch(false)}>My Nominations</span>
+            </p>
 
-            {/* Movie Search Results */}
-            {searchRes.map(movie => 
-                <MovieListing
-                    key={movie.imdbID} 
-                    movie={movie} 
-                    numNominations={numNominations}
-                    setNumNominations={setNumNominations} 
-                />
-            )}
+            { showSearch ?
+                <div>
+                    {/* Search Bar */}
+                    <form onSubmit={searchForMovies}>
+                        <input 
+                            type="text"
+                            onChange={handleChange}
+                        />
+                        <input type="submit" style={{display: "none"}}/>
+                    </form>
 
-            {/* Movie Nominations */}
-            <Nominations />
+                    {/* Movie Search Results */}
+                    {searchRes.map(movie => 
+                        <MovieListing
+                            key={movie.imdbID} 
+                            movie={movie} 
+                            numNominations={numNominations}
+                            setNumNominations={setNumNominations} 
+                        />
+                    )}
+                </div>
+                : 
+                <div>
+                    {/* Movie Nominations */}
+                    <Nominations />
+                </div>       
+            }
 
         </div>
     );
