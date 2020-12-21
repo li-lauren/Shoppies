@@ -60,6 +60,7 @@ def create_nomination(title, release_year, poster, imdb_id, nominator):
 
 
 def remove_nomination(imdb_id, nominator):
+    """Remove a nomination."""
 
     result = "Success"
 
@@ -75,6 +76,15 @@ def remove_nomination(imdb_id, nominator):
     db.session.commit()
 
     return result
+
+
+def get_nominations_by_user_id(user_id):
+    """Create a list of imdb ids for all of a user's nominated movies."""
+
+    nomination_imdb_ids = db.session.query(Nomination.imdb_id).\
+        filter(Nomination.nominator == user_id).all()
+
+    return nomination_imdb_ids
 
 
 if __name__ == '__main__':
