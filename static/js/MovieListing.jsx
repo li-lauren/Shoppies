@@ -27,10 +27,10 @@ const MovieListing = ({movie}) => {
         };
 
         fetch('/nominations', reqOptions)
-        .then(req => req.json())
+        .then(res => res.text())
         .then(data => {
-            if (data.err) {
-                setErrorMsg(data.err);
+            if (data === 'Error') {
+                setErrorMsg('Your nomination could not be processed. Please try again.');
             } else {
                 // nomination successfully processed 
                 setNominated(true);
