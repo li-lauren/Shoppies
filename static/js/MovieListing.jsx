@@ -2,6 +2,7 @@
 
 const MovieListing = ({movie}) => {
     const [nominated, setNominated] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
     const imdbID = movie.imdbID;
 
     useEffect(() => {
@@ -12,10 +13,32 @@ const MovieListing = ({movie}) => {
     }, []);
 
     const nominateMovie = () => {
-        setNominated(true);
+        
+        const reqOptions = {
+            method : 'POST', 
+            header : {
+                'Content-Type' : 'application/json'
+            }, body : {
+                'title' : movie.Title,
+                'year' : movie.Year,
+                'poster' : movie.Poster,
+                'imdb_id' : movid.imdbID
+            }
+        };
 
-        // save nominated movie to local storage
-        localStorage.setItem(movie.imdbID, movie.Title);
+        fetch('/nominations', reqOptions)
+        .then(req => req.json())
+        .then(data => {
+            if (data.err) {
+                setErrorMsg(data.err);
+            } else {
+                // nomination successfully processed 
+                setNominated(true);
+
+                // save nominated movie to local storage
+                localStorage.setItem(movie.imdbID, movie.Title);
+            };
+        });
     };
 
     const unnominateMovie = () => {
