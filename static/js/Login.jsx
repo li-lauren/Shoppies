@@ -37,6 +37,13 @@ const Login = ({setLoggedIn}) => {
             } else {
                 // successful login
                 setLoggedIn(true);
+
+                if (data.nominations) {
+                    // add pre-existing nominations to local storage
+                    for (nomination of data.nominations) {
+                        localStorage.setItem(nomination, '')
+                    }
+                }
             }
         });
     };
@@ -62,7 +69,4 @@ const Login = ({setLoggedIn}) => {
             </form>
         </div>
     )
-
-
-
 }
