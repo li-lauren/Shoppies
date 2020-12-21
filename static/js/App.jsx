@@ -4,11 +4,17 @@ const App = () => {
     return(
         <div>
             Shoppies
-            <Login setLoggedIn={setLoggedIn} />
-            <Signup />
-            <Logout />
-            <MovieSearch />
- 
+            { loggedIn ? 
+                <div>
+                    <Logout />
+                    <MovieSearch />
+                </div> 
+                : 
+                <div>
+                    <Login setLoggedIn={setLoggedIn} />
+                    <Signup />
+                </div>
+            }
         </div>
     ) 
  }
