@@ -3,25 +3,8 @@
 const Logout = ({setLoggedIn}) => {
 
     const logout = () => {
-
-        const reqOptions = {
-            method: 'POST', 
-            headers: {
-                'Content-Type':'application/json'
-            }, 
-            body: JSON.stringify(
-                {'nominatedMovieIDs' : localStorage.getItem('nominatedMovieIDs')}
-            )
-        };
-
-        fetch('/logout', reqOptions)
-        .then(res => res.text())
-        .then(data => {
-            if (data === 'success') {
-                setLoggedIn(false);
-                localStorage.clear();
-            }
-        });
+        setLoggedIn(false);
+        localStorage.clear();
     };
 
     return(
