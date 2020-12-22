@@ -3,13 +3,7 @@
 const MovieSearch = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchRes, setSearchRes] = useState([]);
-    const [showSearch, setShowSearch] = useState(true);
-
-    const [numNominations, setNumNominations] = useState(null);
     
-    // reload after first render, so updated length is stored as numNominations
-    useEffect(() => setNumNominations(localStorage.length), []);
-
     const searchForMovies = e => {
         e.preventDefault();
 
@@ -26,44 +20,24 @@ const MovieSearch = () => {
 
     return (
         <div>
-            {/* Banner Displayed When Nomination Limit is Reached */}
-            <CompletedNomBanner numNominations={numNominations} />
+            {/* Search Bar */}
+            <form onSubmit={searchForMovies}>
+                <input 
+                    type="text"
+                    onChange={handleChange}
+                />
+                <input type="submit" style={{display: "none"}}/>
+            </form>
 
-            {/* Toggle Display Between Search Bar and Nominations */}
-            <p>
-                <span onClick={() => setShowSearch(true)}>Search &#38; Nominate</span>
-                 / 
-                <span onClick={() => setShowSearch(false)}>My Nominations</span>
-            </p>
-
-            { showSearch ?
-                <div>
-                    {/* Search Bar */}
-                    <form onSubmit={searchForMovies}>
-                        <input 
-                            type="text"
-                            onChange={handleChange}
-                        />
-                        <input type="submit" style={{display: "none"}}/>
-                    </form>
-
-                    {/* Movie Search Results */}
-                    {searchRes.map(movie => 
-                        <MovieListing
-                            key={movie.imdbID} 
-                            movie={movie} 
-                            numNominations={numNominations}
-                            setNumNominations={setNumNominations} 
-                        />
-                    )}
-                </div>
-                : 
-                <div>
-                    {/* Movie Nominations */}
-                    <Nominations />
-                </div>       
-            }
-
+            {/* Movie Search Results */}
+            {searchRes.map(movie => 
+                <MovieListing
+                    key={movie.imdbID} 
+                    movie={movie} 
+                    numNominations={numNominations}
+                    setNumNominations={setNumNominations} 
+                />
+            )}
         </div>
     );
 }

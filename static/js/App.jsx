@@ -4,10 +4,7 @@ const App = () => {
     return(
         <React.Fragment>
             { loggedIn ? 
-                <div>
-                    <Logout setLoggedIn={setLoggedIn} />
-                    <MovieSearch />
-                </div> 
+                <Dashboard setLoggedIn={setLoggedIn} />
                 : 
                 <GreetingPage setLoggedIn={setLoggedIn} />
             }
