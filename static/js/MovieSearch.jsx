@@ -34,8 +34,8 @@ const MovieSearch = ({numNominations, setNumNominations}) => {
             </form>
 
             { showResHeading ? 
-                <p>
-                    Results for <span className="yellow">{searchTerm}</span>
+                <p id="res-heading">
+                    Results for <span className="yellow">"{searchTerm}"</span>
                 </p> : ''
             }
 
