@@ -60,27 +60,35 @@ const MovieListing = ({movie, numNominations, setNumNominations}) => {
     };
 
     return (
-        <div>
+        <div className="listing-container">
+            
+
             { movie.Poster === 'N/A' ? 
-                <p>No poster</p> :
-                <img src={movie.Poster} alt={`${movie.Title}-poster`} />
+                <div className="no-poster"></div> :
+                <img
+                    className="poster" 
+                    src={movie.Poster} 
+                    alt={`${movie.Title}-poster`} 
+                />
             }
-            <span>{movie.Title} ({movie.Year})</span>
+            <span className="title">{movie.Title} ({movie.Year})</span>
+            
 
             { nominated ?
-                <div>
-                    <button disabled>Nominated</button>
-                    <button onClick={unnominateMovie}>Trash</button>
-                </div> : 
+                
+                
+                <button className="btn btn-light nom-btn" onClick={unnominateMovie}>Remove</button>
+                
+                : 
                 // disable nomination button when nomination limit of 5 is reached
                 numNominations === 5 ? 
-                    <button disabled>Nomination Limit Reached</button> :
-                    <button onClick={nominateMovie}>Nominate</button>
+                    <button className="btn btn-light nom-btn" disabled>Limit Reached</button> :
+                    <button className="btn btn-light nom-btn" onClick={nominateMovie}>Nominate</button>
             }
 
-            { errorMsg ? 
+            {/* { errorMsg ? 
                 <p>{errorMsg}</p> : ''
-            }
+            } */}
         </div>
     )
 }

@@ -40,14 +40,16 @@ const MovieSearch = ({numNominations, setNumNominations}) => {
             }
 
             {/* Movie Search Results */}
-            {searchRes.map(movie => 
-                <MovieListing
-                    key={movie.imdbID} 
-                    movie={movie} 
-                    numNominations={numNominations}
-                    setNumNominations={setNumNominations} 
-                />
-            )}
+            <div id="search-res-container">
+                {searchRes.map(movie => 
+                    <MovieListing
+                        key={movie.imdbID} 
+                        movie={movie} 
+                        numNominations={numNominations}
+                        setNumNominations={setNumNominations} 
+                    />
+                )}
+            </div>    
         </div>
     );
 }
