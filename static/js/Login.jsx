@@ -50,7 +50,7 @@ const Login = ({setLoggedIn, setShowLoginForm}) => {
 
     return(
         <div className='form-wrapper'>
-            <h3 className='login-header'>Login</h3>
+            <h3 className='form-header'>Login</h3>
 
             <form className='form-container' onSubmit={login}>
                 <input 

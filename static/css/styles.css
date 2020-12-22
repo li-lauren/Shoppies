@@ -21,7 +21,6 @@
 #home-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
 }
 
 #shoppies-logo {
@@ -38,21 +37,17 @@
 
 /* Login and Signup Form */
 
-/* #login-section {
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 100px;
-} */
-
-#login-container {
-    align-self: center;
-    justify-content: center;
 }
 
-.login-header {
-    font-family: 'Bungee Inline', cursive;
+.form-header {
+    font-family: 'Bungee Inline', cursive !important;
     font-size: 150px;
     color: #e3e3e1;
-    margin-bottom: -110px;
-    margin-left: -100px;
 }
 
 .login-toggle {
@@ -62,25 +57,11 @@
 }
 
 
-/* .form-parent {
-    display: flex;
-    flex-direction: column;
-} */
-
-.form-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
-}
-
 .form-container {
     background-color: white;
     padding: 10px;
     border-radius: 10px;
     border: 1px #e3e3e1 solid;
-    z-index: 3;
-    margin-top: 35px;
-    margin-left: 60px;
     font-family: 'Roboto Mono', monospace;
 }
 

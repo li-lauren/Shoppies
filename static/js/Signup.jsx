@@ -55,7 +55,7 @@ const Signup = ({setShowLoginForm}) => {
 
     return (
         <div className='form-wrapper'>
-            <h3 className='login-header'>Sign Up</h3>
+            <h3 className='form-header'>Sign Up</h3>
 
             <form className='form-container' onSubmit={signup}>
                 <input 
