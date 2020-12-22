@@ -38,9 +38,9 @@
 
 /* Login and Signup Form */
 
-#login-section {
+/* #login-section {
     margin-top: 100px;
-}
+} */
 
 #login-container {
     align-self: center;
@@ -62,9 +62,15 @@
 }
 
 
-.form-parent {
+/* .form-parent {
     display: flex;
     flex-direction: column;
+} */
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
 }
 
 .form-container {

@@ -1,6 +1,6 @@
 // Login form
 
-const Login = ({setLoggedIn}) => {
+const Login = ({setLoggedIn, setShowLoginForm}) => {
     const [userInput, setUserInput] = useReducer(
         (state, newState) => ({...state, ...newState}),
         {
@@ -49,8 +49,10 @@ const Login = ({setLoggedIn}) => {
     };
 
     return(
-        <div id='login-form'>
-            <form onSubmit={login}>
+        <div className='form-wrapper'>
+            <h3 className='login-header'>Login</h3>
+
+            <form className='form-container' onSubmit={login}>
                 <input 
                     type="text"
                     placeholder="Email"
@@ -68,7 +70,21 @@ const Login = ({setLoggedIn}) => {
                 <button type="submit" className="btn btn-outline-warning btn-sm">
                     &#x2192;
                 </button>
+                <br/>
+
+                <p>{errorMsg}</p>
+
+                {/* Redirect to Signup */}
+                <span 
+                    className='login-toggle'
+                    onClick={() => setShowLoginForm(false)}
+                >
+                    New here? &nbsp;
+                    <span className='yellow'>
+                        Let's set you up.
+                    </span>
+                </span>
             </form>
-        </div>
-    )
+        </div>  
+    );
 }

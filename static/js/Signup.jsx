@@ -1,6 +1,6 @@
 // Signup form for users to become Shoppie judges
 
-const Signup = () => {
+const Signup = ({setShowLoginForm}) => {
     const [userInput, setUserInput] = useReducer(
         (state, newState) => ({...state, ...newState}),
         {
@@ -19,7 +19,7 @@ const Signup = () => {
         const value = e.target.value;
 
         setUserInput({[name]: value});
-    }
+    };
 
     const signup = e => {
         e.preventDefault();
@@ -37,6 +37,7 @@ const Signup = () => {
         .then(data => {
             if (data.successMsg) {
                 // user created
+                setErrorMsg('');
                 setSuccessMsg(data.success_msg);
             } else {
                 // error in creating user
@@ -49,12 +50,14 @@ const Signup = () => {
                 email: '', 
                 password: ''
             });
-        })
-    }
+        });
+    };
 
     return (
-        <div>
-            <form onSubmit={signup}>
+        <div className='form-wrapper'>
+            <h3 className='login-header'>Sign Up</h3>
+
+            <form className='form-container' onSubmit={signup}>
                 <input 
                     type="text" 
                     placeholder="First"
@@ -90,9 +93,22 @@ const Signup = () => {
                 <button type="submit" className="btn btn-outline-warning btn-sm">
                     Join the Shoppies
                 </button>
-            </form> 
-            <p>{successMsg}</p>
-            <p>{errorMsg}</p>
+             
+                <p>{successMsg}</p>
+                <p>{errorMsg}</p>
+                <br/>
+
+                {/* Redirect to Login */}
+                <span 
+                    className='login-toggle'
+                    onClick={() => setShowLoginForm(true)}
+                >
+                    Already a member? &nbsp;
+                    <span className='yellow'>
+                        Login here.
+                    </span>
+                </span>
+            </form>
         </div>
     )
 }

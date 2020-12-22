@@ -12,42 +12,14 @@ const GreetingPage = ({setLoggedIn}) => {
                 <br/>
             </div>
 
-            <div id='login-section'>
-                { showLoginForm ? 
-                    <div className='form-parent'>
-                        <h3 className='login-header'>Login</h3>
-                        <div className='form-container'>
-                            <Login setLoggedIn={setLoggedIn} /> 
-                            <span 
-                                className='login-toggle'
-                                onClick={() => setShowLoginForm(false)}
-                            >
-                                New here? &nbsp;
-                                <span className='yellow'>
-                                    Let's set you up.
-                                </span>
-                            </span>
-                        </div>    
-                    </div>
-                    : 
-                    <div className='form-parent'>
-                        <h3 className='login-header'>Sign Up</h3>
-                        <div className='form-container'>
-                            <Signup />
-                            <br/>
-                            <span 
-                                className='login-toggle'
-                                onClick={() => setShowLoginForm(true)}
-                            >
-                                Already a member? &nbsp;
-                                <span className='yellow'>
-                                    Login here.
-                                </span>
-                            </span>
-                        </div>   
-                    </div>
-                }
-            </div>
-        </div>
+            { showLoginForm ? 
+                <Login 
+                    setShowLoginForm={setShowLoginForm}
+                    setLoggedIn={setLoggedIn} 
+                />    
+                : 
+                <Signup setShowLoginForm={setShowLoginForm} />     
+            }
+        </div>  
     )
 }
