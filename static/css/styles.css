@@ -4,3 +4,46 @@
     justify-content: center;
     align-items: center;
 }
+
+#home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#shoppies-logo {
+    font-family: 'Bungee Outline', cursive;
+    font-size: 150px;
+}
+
+.header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+}
+
+#login-container {
+    align-self: center;
+    justify-content: center;
+}
+
+
+input[type="text"],
+select.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  color: whitesmoke;
+  margin-bottom: 5px;
+  outline: none;
+  outline-style: none;
+  padding: 3px 10px;
+}
+
+input[type="text"]:focus,
+select.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

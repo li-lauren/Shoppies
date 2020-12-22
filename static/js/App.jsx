@@ -3,16 +3,19 @@ const App = () => {
     const [showLoginForm, setShowLoginForm] = useState(true);
 
     return(
-        <div>
-            <h1>Shoppies</h1>
+        <div id='home-container'>
+            <h3 className='header'>Movie Awards</h3>
+            <h1 id='shoppies-logo'>Shoppies</h1>
+            <h3 className='header'>For the Entrepreneur</h3>
+            
             { loggedIn ? 
                 <div>
                     <Logout setLoggedIn={setLoggedIn} />
                     <MovieSearch />
                 </div> 
                 : 
-                <div>
-                    <p>
+                <div id='login-container'>
+                    <div className="login-toggle">
                         <span onClick={() => setShowLoginForm(true)}>
                             Login
                         </span>
@@ -20,7 +23,7 @@ const App = () => {
                         <span onClick={() => setShowLoginForm(false)}>
                             Sign Up
                         </span>
-                    </p>
+                    </div>
                     { showLoginForm ? 
                         <Login setLoggedIn={setLoggedIn} /> : <Signup />
                     }
