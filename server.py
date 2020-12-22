@@ -44,11 +44,11 @@ def login():
             login_results["nominations"] = crud.get_nomination_imdb_ids(user.user_id)
 
         else:
-            login_results["error"] = "Incorrect password. Please try again."
+            login_results["err"] = "Incorrect password. Please try again."
     else:
         # No user found in DB
-        login_results["error"] = "No user associated with that email."
-
+        login_results["err"] = "No user associated with that email."
+    
     return jsonify(login_results)
 
 
