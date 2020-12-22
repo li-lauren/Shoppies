@@ -15,7 +15,7 @@ const App = () => {
                 </div> 
                 : 
                 <div id='login-container'>
-                    <div className="login-toggle">
+                    {/* <div className="login-toggle">
                         <span onClick={() => setShowLoginForm(true)}>
                             Login
                         </span>
@@ -23,9 +23,31 @@ const App = () => {
                         <span onClick={() => setShowLoginForm(false)}>
                             Sign Up
                         </span>
-                    </div>
+                    </div> */}
                     { showLoginForm ? 
-                        <Login setLoggedIn={setLoggedIn} /> : <Signup />
+                        <div className='form-parent'>
+                            <h3 className='login-header'>Login</h3>
+                            <div className='form-container'>
+                                <Login setLoggedIn={setLoggedIn} /> 
+                                <span 
+                                    className='login-toggle'
+                                    onClick={() => setShowLoginForm(false)}
+                                >
+                                    New here? &nbsp;
+                                    <span className='yellow'>
+                                        Let's set you up.
+                                    </span>
+                                </span>
+                            </div>    
+                        </div>
+                        : 
+                        <div>
+                            <h3 classNane='login-header'>Sign Up</h3>
+                            <Signup />
+                            <span onClick={() => setShowLoginForm(true)}>
+                                Already a member? Login here.
+                            </span>
+                        </div>
                     }
                 </div>
             }

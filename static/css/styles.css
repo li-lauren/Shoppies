@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.yellow {
+    color: #f0ad4e;
+}
+
 #home-container {
     display: flex;
     flex-direction: column;
@@ -21,10 +25,45 @@
     font-size: 30px;
 }
 
+/* Login and Signup Form */
+
 #login-container {
     align-self: center;
     justify-content: center;
 }
+
+.login-header {
+    font-family: 'Bungee Inline', cursive;
+    font-size: 150px;
+    color: #e3e3e1;
+    margin-bottom: -120px;
+    margin-left: -100px;
+}
+
+.login-toggle {
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+.form-parent {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px #e3e3e1 solid;
+    z-index: 3;
+    margin-top: 35px;
+    margin-left: 60px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+
 
 
 input[type="text"],
@@ -46,4 +85,32 @@ input[type="text"]:focus,
 select.form-control:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+input[type="password"],
+select.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  color: whitesmoke;
+  margin-bottom: 5px;
+  outline: none;
+  outline-style: none;
+  padding: 3px 10px;
+}
+
+input[type="password"]:focus,
+select.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-outline-warning {
+    margin-top: -1px;
+    border-radius: 0;
+    border: none;
+    border-bottom: #f0ad4e 1px solid;
 }

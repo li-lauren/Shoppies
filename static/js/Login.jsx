@@ -49,7 +49,7 @@ const Login = ({setLoggedIn}) => {
     };
 
     return(
-        <div>
+        <div id='login-form'>
             <form onSubmit={login}>
                 <input 
                     type="text"
@@ -59,13 +59,15 @@ const Login = ({setLoggedIn}) => {
                     onChange={handleChange}
                 />
                 <input 
-                    type="text"
+                    type="password"
                     placeholder="Password"
                     name="password"
                     value={userInput.password}
                     onChange={handleChange}
                 />
-                <button type="submit">Login</button>
+                <button type="submit" className="btn btn-outline-warning btn-sm">
+                    &#x2192;
+                </button>
             </form>
         </div>
     )
