@@ -1,8 +1,9 @@
 // Search bar for movies and movie listings for subsequent results
 
-const MovieSearch = () => {
+const MovieSearch = ({numNominations, setNumNominations}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchRes, setSearchRes] = useState([]);
+    const [showResHeading, setShowResHeading] = useState(false);
     
     const searchForMovies = e => {
         e.preventDefault();
@@ -10,7 +11,8 @@ const MovieSearch = () => {
         fetch(`/search/${searchTerm}`)
         .then(res => res.json())
         .then(data => {
-            setSearchRes(data.Search)
+            setSearchRes(data.Search);
+            setShowResHeading(true);
         });
     };
 
@@ -19,15 +21,23 @@ const MovieSearch = () => {
     };
 
     return (
-        <div>
+        <div id="search-container">
             {/* Search Bar */}
-            <form onSubmit={searchForMovies}>
+            <form onSubmit={searchForMovies} id="search-form">
                 <input 
+                    id="search-bar"
                     type="text"
+                    placeholder="Movie Title"
                     onChange={handleChange}
                 />
                 <input type="submit" style={{display: "none"}}/>
             </form>
+
+            { showResHeading ? 
+                <p>
+                    Results for <span className="yellow">{searchTerm}</span>
+                </p> : ''
+            }
 
             {/* Movie Search Results */}
             {searchRes.map(movie => 
