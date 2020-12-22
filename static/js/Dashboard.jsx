@@ -11,18 +11,20 @@ const Dashboard = ({setLoggedIn}) => {
 
 
     return (
-        <div>
+        <div className='dash-container'>
+            <h1 className='dash-header-top'>Welcome to the </h1>
+            <h1 className='dash-header'>Shoppies</h1>
             <Logout setLoggedIn={setLoggedIn} />
 
             {/* Banner Displayed When Nomination Limit is Reached */}
             <CompletedNomBanner numNominations={numNominations} />
 
             {/* Toggle Display Between Search Bar and Nominations */}
-            <p>
+            <div className='dash-toggle'>
                 <span onClick={() => setShowSearch(true)}>Search &#38; Nominate</span>
-                 / 
+                <span>/</span>
                 <span onClick={() => setShowSearch(false)}>My Nominations</span>
-            </p>
+            </div>
 
             { showSearch ? 
                 <MovieSearch 

@@ -5,12 +5,18 @@ const CompletedNomBanner = ({numNominations}) => {
     const nominationLimit = 5;
 
     return(
-        <React.Fragment>
-            { (numNominations === nominationLimit) ? 
-            <div>
-                {`Congrats! You have completed your ${nominationLimit} Shoppie nominations!`}
-            </div> : ''
+        // <React.Fragment>
+        //     { (numNominations === nominationLimit) ? 
+        //     <div>
+        //         {`Congrats! You have completed your ${nominationLimit} Shoppie nominations!`}
+        //     </div> : ''
+        //     }
+        // </React.Fragment>   
+        <div id='banner'>
+            {(numNominations === nominationLimit) ? 
+              `Congrats! You've completed your ${nominationLimit} Shoppie nominations!` 
+              : ''
             }
-        </React.Fragment>    
+        </div> 
     )
 }

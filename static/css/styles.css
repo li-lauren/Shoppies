@@ -113,3 +113,44 @@ select.form-control:focus {
     border: none;
     border-bottom: #f0ad4e 1px solid;
 }
+
+/* Dashboard */
+
+.dash-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.dash-header-top {
+    font-family: 'Oswald', serif;
+    font-size: 24px;
+}
+
+.dash-header {
+    font-family: 'Bungee Outline', cursive;
+    font-size: 90px;
+}
+
+.logout-btn {
+    font-family: 'Roboto Mono', monospace;
+    align-self: flex-end;
+}
+
+.dash-toggle {
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 36px;
+    margin-top: 36px;
+}
+
+/* Nomination Banner */
+
+#banner {
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+}

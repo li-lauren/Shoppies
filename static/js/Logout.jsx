@@ -8,6 +8,6 @@ const Logout = ({setLoggedIn}) => {
     };
 
     return(
-        <button onClick={logout}>Logout</button>
+        <div className='logout-btn yellow' onClick={logout}>Logout</div>
     );
 }
