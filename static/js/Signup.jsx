@@ -55,39 +55,41 @@ const Signup = () => {
     return (
         <div>
             <form onSubmit={signup}>
-                <label>First Name</label>
                 <input 
                     type="text" 
+                    placeholder="First"
                     name="fname" 
                     value={userInput.fname} 
                     onChange={handleChange} 
                 />
-                <label>Last Name</label>
                 <input 
                     type="text" 
+                    placeholder="Last"
                     name="lname" 
                     value={userInput.lname} 
                     onChange={handleChange} 
                 />
                 <br/>
 
-                <label>Email</label>
                 <input 
                     type="text" 
+                    placeholder="Email"
                     name="email" 
                     value={userInput.email} 
                     onChange={handleChange} 
                 />
-                <label>Password</label>
                 <input 
                     type="password" 
+                    placeholder="Password"
                     name="password" 
                     value={userInput.password} 
                     onChange={handleChange} 
                 />
                 <br/>
 
-                <button type="submit">Become a Shoppie Judge</button>
+                <button type="submit" className="btn btn-outline-warning btn-sm">
+                    Join the Shoppies
+                </button>
             </form> 
             <p>{successMsg}</p>
             <p>{errorMsg}</p>

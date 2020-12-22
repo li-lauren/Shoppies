@@ -9,6 +9,15 @@
     color: #f0ad4e;
 }
 
+/* Shoppies Header  */
+
+#header-section {
+    border-bottom: 4px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 #home-container {
     display: flex;
     flex-direction: column;
@@ -18,6 +27,8 @@
 #shoppies-logo {
     font-family: 'Bungee Outline', cursive;
     font-size: 150px;
+    margin-top: -20px;
+    margin-bottom: -20px;
 }
 
 .header {
@@ -26,6 +37,10 @@
 }
 
 /* Login and Signup Form */
+
+#login-section {
+    margin-top: 100px;
+}
 
 #login-container {
     align-self: center;
@@ -36,7 +51,7 @@
     font-family: 'Bungee Inline', cursive;
     font-size: 150px;
     color: #e3e3e1;
-    margin-bottom: -120px;
+    margin-bottom: -110px;
     margin-left: -100px;
 }
 
@@ -63,8 +78,7 @@
     font-family: 'Roboto Mono', monospace;
 }
 
-
-
+/* Form Styling */
 
 input[type="text"],
 select.form-control {

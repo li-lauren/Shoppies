@@ -4,9 +4,12 @@ const App = () => {
 
     return(
         <div id='home-container'>
-            <h3 className='header'>Movie Awards</h3>
-            <h1 id='shoppies-logo'>Shoppies</h1>
-            <h3 className='header'>For the Entrepreneur</h3>
+            <div id='header-section'>
+                <h3 className='header'>Movie Awards</h3>
+                <h1 id='shoppies-logo'>Shoppies</h1>
+                <h3 className='header'>For the Entrepreneur</h3>
+                <br/>
+            </div>
             
             { loggedIn ? 
                 <div>
@@ -14,16 +17,7 @@ const App = () => {
                     <MovieSearch />
                 </div> 
                 : 
-                <div id='login-container'>
-                    {/* <div className="login-toggle">
-                        <span onClick={() => setShowLoginForm(true)}>
-                            Login
-                        </span>
-                        <span>/</span> 
-                        <span onClick={() => setShowLoginForm(false)}>
-                            Sign Up
-                        </span>
-                    </div> */}
+                <div id='login-section'>
                     { showLoginForm ? 
                         <div className='form-parent'>
                             <h3 className='login-header'>Login</h3>
@@ -41,12 +35,21 @@ const App = () => {
                             </div>    
                         </div>
                         : 
-                        <div>
-                            <h3 classNane='login-header'>Sign Up</h3>
-                            <Signup />
-                            <span onClick={() => setShowLoginForm(true)}>
-                                Already a member? Login here.
-                            </span>
+                        <div className='form-parent'>
+                            <h3 className='login-header'>Sign Up</h3>
+                            <div className='form-container'>
+                                <Signup />
+                                <br/>
+                                <span 
+                                    className='login-toggle'
+                                    onClick={() => setShowLoginForm(true)}
+                                >
+                                    Already a member? &nbsp;
+                                    <span className='yellow'>
+                                        Login here.
+                                    </span>
+                                </span>
+                            </div>   
                         </div>
                     }
                 </div>
