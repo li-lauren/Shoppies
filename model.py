@@ -56,7 +56,7 @@ class Nomination(db.Model):
         return f"<Nomination nomination_id={self.nomination_id} title={self.title}>"
 
 
-def connect_to_db(flask_app, db_uri='postgresql:///shoppies_db', echo=True):
+def connect_to_db(flask_app, db_uri=None, echo=True):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
     flask_app.config['SQLALCHEMY_ECHO'] = echo
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
