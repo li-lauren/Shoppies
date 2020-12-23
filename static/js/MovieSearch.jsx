@@ -31,15 +31,15 @@ const MovieSearch = ({numNominations, setNumNominations}) => {
 
     return (
         <div id="search-container">
+            
             {/* Search Bar */}
-            <form onSubmit={searchForMovies} id="search-form">
+            <form id="search-form">
                 <input 
                     id="search-bar"
                     type="text"
                     placeholder="Movie Title"
                     onChange={searchForMovies}
                 />
-                <input type="submit" style={{display: "none"}}/>
             </form>
 
             { showResHeading ? 
