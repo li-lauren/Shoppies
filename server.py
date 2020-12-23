@@ -56,11 +56,6 @@ def login():
 def logout():
     """User Logout / Remove from Session."""
 
-    # Update user's nominated movies
-    # user_id = session["user_id"]
-    # newest_nominated_movies = request.json.get("nominatedMovieIDs")
-    # crud.update_nominated_movies(newest_nominated_movies, user_id)
-
     session.pop("user_id", None)
 
 
