@@ -12,12 +12,17 @@ const MovieSearch = ({numNominations, setNumNominations}) => {
         .then(res => res.json())
         .then(data => {
             setSearchRes(data.Search);
-            setShowResHeading(true);
+            
+            if (typeof data.Search === 'undefined') {
+                setShowResHeading(false);
+            } else {
+                setShowResHeading(true);
+            }    
         });
     };
 
     const handleChange = e => {
-        setSearchTerm(e.target.value)
+        setSearchTerm(e.target.value);
     };
 
     return (
@@ -41,14 +46,14 @@ const MovieSearch = ({numNominations, setNumNominations}) => {
 
             {/* Movie Search Results */}
             <div id="search-res-container">
-                {searchRes.map(movie => 
+                {searchRes ? searchRes.map(movie => 
                     <MovieListing
                         key={movie.imdbID} 
                         movie={movie} 
                         numNominations={numNominations}
                         setNumNominations={setNumNominations} 
                     />
-                )}
+                ) : <p>No movies found.</p>}
             </div>    
         </div>
     );
