@@ -157,6 +157,12 @@ select.form-control:focus {
 
 .underline {
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.norm:hover {
+    cursor: pointer;
+    color: #f0ad4e;
 }
 
 /* Nomination Banner */
