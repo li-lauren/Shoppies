@@ -14,8 +14,7 @@ const Nominations = () => {
     };
 
     return (
-        <div>
-            <span>Your Nominations</span>
+        <div id="nom-container">
             {nominations ? nominations.map(nomination => 
                 <NominationListing 
                     nomination={nomination} 

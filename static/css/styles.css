@@ -195,6 +195,7 @@ select.form-control:focus {
     justify-content: center;
 }
 
+
 /* Movie Listing */
 
 .listing-container {
@@ -247,4 +248,14 @@ select.form-control:focus {
     color: red;
     position: absolute;
     margin-top: 230px;
+}
+
+
+/* Nomination Container */
+
+#nom-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: center;
 }
