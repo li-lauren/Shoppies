@@ -31,16 +31,16 @@ const MovieSearch = ({numNominations, setNumNominations}) => {
 
     return (
         <div id="search-container">
-            
+
             {/* Search Bar */}
-            <form id="search-form">
-                <input 
-                    id="search-bar"
-                    type="text"
-                    placeholder="Movie Title"
-                    onChange={searchForMovies}
-                />
-            </form>
+            
+            <input 
+                id="search-bar"
+                type="text"
+                placeholder="Movie Title"
+                onChange={searchForMovies}
+            />
+            
 
             { showResHeading ? 
                 <p id="res-heading">
