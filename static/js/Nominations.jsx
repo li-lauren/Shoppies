@@ -1,11 +1,11 @@
 // List of all current nominations
 
-const Nominations = () => {
+const Nominations = ({numNominations, setNumNominations}) => {
     const [nominations, setNominations] = useState(null);
 
     useEffect(() => {
         getNominations();
-    }, []);
+    }, [numNominations]);
 
     const getNominations = () => {
         fetch('/nominations')
@@ -17,8 +17,9 @@ const Nominations = () => {
         <div id="nom-container">
             {nominations ? nominations.map(nomination => 
                 <NominationListing 
-                    nomination={nomination} 
                     key={nomination.imdb_id}
+                    nomination={nomination}
+                    setNumNominations={setNumNominations} 
                 />) : ''
             }
         </div>

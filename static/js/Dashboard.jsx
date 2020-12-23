@@ -40,7 +40,12 @@ const Dashboard = ({setLoggedIn}) => {
                 <MovieSearch 
                     numNominations={numNominations}
                     setNumNominations={setNumNominations}
-                /> : <Nominations />
+                /> 
+                : 
+                <Nominations 
+                    numNominations={numNominations}
+                    setNumNominations={setNumNominations}
+                />
             }
             
         </div> 
