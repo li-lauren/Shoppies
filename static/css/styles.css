@@ -148,6 +148,10 @@ select.form-control:focus {
     margin-top: 36px;
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 /* Nomination Banner */
 
 #banner {
@@ -192,40 +196,6 @@ select.form-control:focus {
 }
 
 /* Movie Listing */
-
-/* .listing-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px;
-    height: 255px;
-    margin: 25px;
-}
-
-.no-poster {
-    width: 200px !important; 
-    height: 255px !important;
-    border: 2px whitesmoke solid;
-}
-
-.poster {
-    width: 200px !important;
-    height: 255px !important;
-    display: flex;
-    z-index: -1;
-}
-
-.title {
-    display: flex;
-    z-index: 2;
-    margin-bottom: -100px;
-}
-
-.nom-btn {
-    display: flex;
-    z-index: 2;
-    margin-top: -50px;
-} */
 
 .listing-container {
     display: flex;

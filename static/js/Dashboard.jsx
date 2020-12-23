@@ -21,9 +21,19 @@ const Dashboard = ({setLoggedIn}) => {
 
             {/* Toggle Display Between Search Bar and Nominations */}
             <div className='dash-toggle'>
-                <span onClick={() => setShowSearch(true)}>Search &#38; Nominate</span>
+                <span 
+                    className={showSearch ? "underline" : ""}
+                    onClick={() => setShowSearch(true)}
+                >
+                    Search &#38; Nominate
+                </span>
                 <span>/</span>
-                <span onClick={() => setShowSearch(false)}>My Nominations</span>
+                <span 
+                    className={showSearch ? "" : "underline"}
+                    onClick={() => setShowSearch(false)}
+                >
+                    My Nominations
+                </span>
             </div>
 
             { showSearch ? 
