@@ -63,7 +63,12 @@ const MovieListing = ({movie, numNominations, setNumNominations}) => {
         <div className="listing-container">
     
             { movie.Poster === 'N/A' ? 
-                <div className="no-poster"></div> :
+                <div className="no-poster">
+                    <span className="material-icons film-icon">
+                        theaters
+                    </span>
+                </div> 
+                :
                 <img
                     className="poster" 
                     src={movie.Poster} 

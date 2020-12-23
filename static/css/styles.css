@@ -218,6 +218,12 @@ select.form-control:focus {
     z-index: 4;
 }
 
+.film-icon {
+    opacity: 0.1;
+    color: gray;
+    font-size: 120px !important;
+}
+
 .poster {
     /* opacity: .3; */
     position: relative;
