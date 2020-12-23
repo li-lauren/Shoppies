@@ -37,6 +37,7 @@ const Login = ({setLoggedIn, setShowLoginForm}) => {
             } else {
                 // successful login
                 setLoggedIn(true);
+                localStorage.setItem('user', data.user.user_id);
 
                 if (data.nominations) {
                     // add pre-existing nominations to local storage

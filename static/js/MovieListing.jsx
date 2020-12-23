@@ -86,7 +86,8 @@ const MovieListing = ({movie, numNominations, setNumNominations}) => {
                 <button className="btn btn-light nom-btn" onClick={unnominateMovie}>Remove</button>
                 : 
                 // disable nomination button when nomination limit of 5 is reached
-                numNominations === 5 ? 
+                // + 1 b/c localStorage also includes a key for the user
+                numNominations === 5 + 1 ? 
                     <button className="btn btn-light nom-btn" disabled>Limit Reached</button> :
                     <button className="btn btn-light nom-btn" onClick={nominateMovie}>Nominate</button>
             }

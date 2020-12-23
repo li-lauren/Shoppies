@@ -1,5 +1,14 @@
+// entry component to the application
+
 const App = () => {
     const [loggedIn, setLoggedIn] = useState(false);
+
+    useEffect(() => {
+        // check if a user is already logged in
+        if (localStorage.getItem('user')) {
+            setLoggedIn(true);
+        };
+    }, []);
 
     return(
         <React.Fragment>

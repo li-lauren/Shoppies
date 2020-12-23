@@ -4,16 +4,9 @@
 const CompletedNomBanner = ({numNominations}) => {
     const nominationLimit = 5;
 
-    return(
-        // <React.Fragment>
-        //     { (numNominations === nominationLimit) ? 
-        //     <div>
-        //         {`Congrats! You have completed your ${nominationLimit} Shoppie nominations!`}
-        //     </div> : ''
-        //     }
-        // </React.Fragment>   
+    return( 
         <div id='banner'>
-            {(numNominations === nominationLimit) ? 
+            {(numNominations === nominationLimit + 1) ? // + 1 b/c 'user' is a key in localStorage
               `Congrats! You've completed your ${nominationLimit} Shoppie nominations!` 
               : ''
             }
