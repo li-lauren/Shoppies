@@ -137,6 +137,13 @@ select.form-control:focus {
 .logout-btn {
     font-family: 'Roboto Mono', monospace;
     align-self: flex-end;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.logout-btn:hover {
+    background-color: #f0ad4e;
+    color: black;
 }
 
 .dash-toggle {

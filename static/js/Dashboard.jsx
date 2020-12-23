@@ -12,10 +12,10 @@ const Dashboard = ({setLoggedIn}) => {
 
     return (
         <div className='dash-container'>
+            <Logout setLoggedIn={setLoggedIn} />
             <h1 className='dash-header-top'>Welcome to the </h1>
             <h1 className='dash-header'>Shoppies</h1>
-            <Logout setLoggedIn={setLoggedIn} />
-
+            
             {/* Banner Displayed When Nomination Limit is Reached */}
             <CompletedNomBanner numNominations={numNominations} />
 
