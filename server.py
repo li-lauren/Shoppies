@@ -133,9 +133,9 @@ def user_signup():
 def search_for_movies(movie_search_term):
     """Search for and return movies by title."""
 
-    movies = crud.get_movies_by_title(movie_search_term)
+    search_res = crud.get_movies_by_title(movie_search_term)
 
-    return movies
+    return search_res
 
 
 if __name__ == '__main__':

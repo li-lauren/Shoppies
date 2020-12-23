@@ -34,11 +34,37 @@ def create_user(fname, lname, email, password):
 ### MOVIE CRUD OPS ###
 
 def get_movies_by_title(movie_search_term):
-    url = f"http://www.omdbapi.com/?s={movie_search_term}&type=movie&apikey={OMDB_KEY}"
+    """Query OMDB API for movies with titles including the search term."""
 
-    response = requests.get(url)
-    
-    return response.json()
+    # asterisk following search term allows for wildcard results
+    # otherwise we are restricted to exact matches
+    url = f"http://www.omdbapi.com/?s={movie_search_term}*&type=movie&apikey={OMDB_KEY}"
+
+    response = requests.get(url).json()
+
+    # default json response from OMDB when there are too many search results
+    limit_res = {"Response":"False","Error":"Too many results."}
+
+    # default json response when there are no matches
+    no_matches = {"Response":"False","Error":"Movie not found!"}
+
+    search_info = {
+        "res" : None,
+        "error" : None, 
+    }
+
+
+    if response == limit_res:
+        search_info["error"] = "Too many movies. Try a longer title for better results!"
+    elif response == no_matches:
+        search_info["error"] = "No movies found."
+    else: 
+        search_info["res"] = response
+
+    print(search_info)
+
+    return search_info
+
 
 ### NOMINATION CRUD OPS ###
 

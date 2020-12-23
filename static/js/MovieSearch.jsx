@@ -4,25 +4,29 @@ const MovieSearch = ({numNominations, setNumNominations}) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchRes, setSearchRes] = useState([]);
     const [showResHeading, setShowResHeading] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
     
     const searchForMovies = e => {
         e.preventDefault();
-
-        fetch(`/search/${searchTerm}`)
-        .then(res => res.json())
-        .then(data => {
-            setSearchRes(data.Search);
-            
-            if (typeof data.Search === 'undefined') {
-                setShowResHeading(false);
-            } else {
-                setShowResHeading(true);
-            }    
-        });
-    };
-
-    const handleChange = e => {
         setSearchTerm(e.target.value);
+
+        if (e.target.value) {
+            fetch(`/search/${e.target.value}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    setErrorMsg(data.error);
+                    setSearchRes([]);
+                    setShowResHeading(false);
+                } else {
+                    setShowResHeading(true);
+                    setSearchRes(data.res.Search);
+                    setErrorMsg('');
+                }    
+            });
+        } else {
+            setErrorMsg('');
+        };
     };
 
     return (
@@ -33,7 +37,7 @@ const MovieSearch = ({numNominations, setNumNominations}) => {
                     id="search-bar"
                     type="text"
                     placeholder="Movie Title"
-                    onChange={handleChange}
+                    onChange={searchForMovies}
                 />
                 <input type="submit" style={{display: "none"}}/>
             </form>
@@ -53,7 +57,9 @@ const MovieSearch = ({numNominations, setNumNominations}) => {
                         numNominations={numNominations}
                         setNumNominations={setNumNominations} 
                     />
-                ) : <p>No movies found.</p>}
+                ) : ''}
+
+                {errorMsg ? <p>{errorMsg}</p> : ''}
             </div>    
         </div>
     );
