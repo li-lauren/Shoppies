@@ -13,7 +13,7 @@ users can nominate their favorite movies for the Shoppie awards.
 Additional features I implemented include user login and sign up (which is 
 stored in a Postgres database) along with the ability to access nomination 
 lists if the user leaves the page (via local storage). I also enjoyed diving deep into
-the OMDB API discussions on Github to find a way to incorporate pre-fix matching when searching 
+the OMDB API discussions on Github to find a way to incorporate prefix matching when searching 
 for titles.  This means that search results are not limited to exact matches
 (e.g. searching "ram" would also return "Rambo", "Rambling" etc.) 
 
