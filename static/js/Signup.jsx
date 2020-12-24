@@ -96,9 +96,10 @@ const Signup = ({setShowLoginForm, setLoggedIn}) => {
                 <button type="submit" className="btn btn-outline-warning btn-sm">
                     Join the Shoppies
                 </button>
-             
-                <p>{successMsg}</p>
-                <p>{errorMsg}</p>
+
+                <br/>
+                {successMsg ? <p>{successMsg}</p> : ''}
+                {errorMsg ? <p>{errorMsg}</p> : ''}
                 <br/>
 
                 {/* Redirect to Login */}
