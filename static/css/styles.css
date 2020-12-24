@@ -206,7 +206,6 @@ select.form-control:focus {
 
 .listing-container {
     display: flex;
-    font-family: 'Roboto Mono', monospace;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
@@ -256,6 +255,7 @@ select.form-control:focus {
     text-align: center;
     margin-top: -60px;
     z-index: 6;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .nom-btn {
@@ -263,6 +263,7 @@ select.form-control:focus {
     margin-bottom: -50px;
     max-width: 200px;
     margin-top: 60px;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .trophy {
