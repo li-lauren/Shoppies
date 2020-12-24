@@ -206,6 +206,7 @@ select.form-control:focus {
 
 .listing-container {
     display: flex;
+    font-family: 'Roboto Mono', monospace;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
