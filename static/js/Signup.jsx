@@ -98,7 +98,7 @@ const Signup = ({setShowLoginForm, setLoggedIn}) => {
                 </button>
 
                 <br/>
-                {successMsg ? <p>{successMsg}</p> : ''}
+                {successMsg ? <p id="sign-in-msg">{successMsg}</p> : ''}
                 {errorMsg ? <p>{errorMsg}</p> : ''}
                 <br/>
 

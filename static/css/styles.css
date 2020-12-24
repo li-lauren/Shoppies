@@ -65,6 +65,10 @@
     font-family: 'Roboto Mono', monospace;
 }
 
+#sign-in-msg {
+    margin-top: 15px;
+}
+
 /* Form Styling */
 
 input[type="text"],
