@@ -59,19 +59,19 @@ class Nomination(db.Model):
 
 
 def connect_to_db(flask_app, db_uri=None, echo=True):
-    flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
+    flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri or 'postgres:///shoppies_db'
     flask_app.config['SQLALCHEMY_ECHO'] = echo
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.app = flask_app
     db.init_app(flask_app)
 
-    with flask_app.app_context():
-        db.create_all()
+    # with flask_app.app_context():
+    #     db.create_all()
 
     print('Connected to the db!')
 
 if __name__ == '__main__':
     from server import app
 
-    connect_to_db(app, os.environ.get("DATABASE_URL"))
+    connect_to_db(app)
