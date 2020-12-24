@@ -1,6 +1,6 @@
 // Signup form for users to become Shoppie judges
 
-const Signup = ({setShowLoginForm}) => {
+const Signup = ({setShowLoginForm, setLoggedIn}) => {
     const [userInput, setUserInput] = useReducer(
         (state, newState) => ({...state, ...newState}),
         {
@@ -12,7 +12,6 @@ const Signup = ({setShowLoginForm}) => {
     );
 
     const [errorMsg, setErrorMsg] = useState('');
-    const [successMsg, setSuccessMsg] = useState('');
 
     const handleChange = e => {
         const name = e.target.name;
@@ -38,7 +37,10 @@ const Signup = ({setShowLoginForm}) => {
             if (data.successMsg) {
                 // user created
                 setErrorMsg('');
-                setSuccessMsg(data.success_msg);
+                setSuccessMsg("You're now a new member! Logging you in...");
+                setTimeout(() => {
+                    setLoggedIn(true);
+                }, 2000);
             } else {
                 // error in creating user
                 setErrorMsg(data.error_msg);

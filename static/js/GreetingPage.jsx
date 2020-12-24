@@ -18,7 +18,10 @@ const GreetingPage = ({setLoggedIn}) => {
                     setLoggedIn={setLoggedIn} 
                 />    
                 : 
-                <Signup setShowLoginForm={setShowLoginForm} />     
+                <Signup 
+                    setShowLoginForm={setShowLoginForm} 
+                    setLoggedIn={setLoggedIn}
+                />     
             }
         </div>  
     )
