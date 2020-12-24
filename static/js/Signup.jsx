@@ -12,6 +12,7 @@ const Signup = ({setShowLoginForm, setLoggedIn}) => {
     );
 
     const [errorMsg, setErrorMsg] = useState('');
+    const [successMsg, setSuccessMsg] = useState('');
 
     const handleChange = e => {
         const name = e.target.name;
