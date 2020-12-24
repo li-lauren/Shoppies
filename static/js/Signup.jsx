@@ -35,7 +35,7 @@ const Signup = ({setShowLoginForm, setLoggedIn}) => {
         fetch('/users', reqOptions)
         .then(res => res.json())
         .then(data => {
-            if (data.successMsg) {
+            if (data.success_msg) {
                 // user created
                 setErrorMsg('');
                 setSuccessMsg("You're now a new member! Logging you in...");
