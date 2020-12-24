@@ -132,7 +132,8 @@ def search_for_movies(movie_search_term):
 
     return search_res
 
+PORT = int(os.environ.get("PORT", 5000))
 
 if __name__ == '__main__':
     connect_to_db(app, os.environ.get("DATABASE_URL"))
-    app.run(host='0.0.0.0', debug=False)
+    app.run(host='0.0.0.0', port=PORT)
