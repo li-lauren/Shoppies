@@ -3,6 +3,8 @@ from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from dataclasses import dataclass
 
+import os
+
 db = SQLAlchemy()
 
 @dataclass
@@ -72,4 +74,4 @@ def connect_to_db(flask_app, db_uri=None, echo=True):
 if __name__ == '__main__':
     from server import app
 
-    connect_to_db(app)
+    connect_to_db(app, os.environ.get("DATABASE_URL"))
