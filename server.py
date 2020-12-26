@@ -110,7 +110,8 @@ def user_signup():
 
     signup_res = {
         "success_msg": "", 
-        "error_msg": ""
+        "error_msg": "", 
+        "user_id": ""
     }
 
     if crud.get_user_by_email(email):
@@ -118,8 +119,9 @@ def user_signup():
         signup_res["error_msg"] = "A user already exists with that email."
     else:
         # add user to database
-        crud.create_user(fname, lname, email, password)
+        new_user = crud.create_user(fname, lname, email, password)
         signup_res["success_msg"] = "Welcome to the Shoppies!"
+        signup_res["user_id"] = str(new_user.user_id)
 
     return signup_res
 

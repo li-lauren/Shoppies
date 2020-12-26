@@ -39,6 +39,7 @@ const Signup = ({setShowLoginForm, setLoggedIn}) => {
                 // user created
                 setErrorMsg('');
                 setSuccessMsg("You're now a new member! Logging you in...");
+                localStorage.setItem('user', data.user_id);
                 setTimeout(() => {
                     setLoggedIn(true);
                 }, 2000);
