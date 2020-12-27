@@ -5,7 +5,18 @@ const NominationListing = ({nomination, setNumNominations}) => {
     const imdbID = nomination.imdb_id
 
     const unnominateMovie = () => {
-        fetch(`/nominations/delete/${imdbID}`)
+        const reqOptions = {
+            method: 'POST', 
+            headers: {
+                'Content-Type' : 'application/json'
+            }, 
+            body: JSON.stringify({
+                'imdb_id' : imdbID, 
+                'nominator': localStorage.getItem('user')
+            })
+        };
+
+        fetch('/nominations/delete', reqOptions)
         .then(res => res.text())
         .then( data => {
             if (data !== 'Success') {

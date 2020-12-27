@@ -116,13 +116,14 @@ def nominate_movie():
     return "Success" if nomination else "Error"
 
 
-@app.route("/nominations/delete/<imdb_id>")
-def delete_nomination(imdb_id):
+@app.route("/nominations/delete", methods=['POST'])
+def delete_nomination():
     """Remove a user's nomination."""
 
-    user_id = session['user_id']
+    nominator = int(request.json.get("nominator"))
+    imdb_id = request.json.get("imdb_id")
 
-    result = crud.remove_nomination(imdb_id, user_id)
+    result = crud.remove_nomination(imdb_id, nominator)
 
     return result
 
