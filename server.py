@@ -52,54 +52,6 @@ def login():
     return jsonify(login_results)
 
 
-@app.route("/logout")
-def logout():
-    """User Logout / Remove from Session."""
-
-    session.pop("user_id", None)
-
-
-@app.route("/nominations")
-def get_nominations():
-    """Get a list of the user's nominations."""
-
-    nominations = crud.get_nominations_by_user_id(session["user_id"])
-
-    return jsonify(nominations)
-
-
-@app.route("/nominations", methods=['POST'])
-def nominate_movie():
-    """Create a movie nomination."""
-
-    nominator = session["user_id"]
-    title = request.json.get("title")
-    release_year = request.json.get("year")
-    poster = request.json.get("poster")
-    imdb_id = request.json.get("imdb_id")
-
-    nomination = crud.create_nomination(
-        title, 
-        release_year, 
-        poster, 
-        imdb_id, 
-        nominator
-    )
-
-    return "Success" if nomination else "Error"
-
-
-@app.route("/nominations/delete/<imdb_id>")
-def delete_nomination(imdb_id):
-    """Remove a user's nomination."""
-
-    user_id = session['user_id']
-
-    result = crud.remove_nomination(imdb_id, user_id)
-
-    return result
-
-
 @app.route("/users", methods=['POST'])
 def user_signup():
     """Register a new user."""
@@ -124,6 +76,55 @@ def user_signup():
         signup_res["user_id"] = str(new_user.user_id)
 
     return signup_res
+
+
+@app.route("/logout")
+def logout():
+    """User Logout / Remove from Session."""
+
+    session.pop("user_id", None)
+
+
+@app.route("/nominations/<user_id>")
+def get_nominations(user_id):
+    """Get a list of the user's nominations."""
+
+    nominations = crud.get_nominations_by_user_id(int(user_id))
+    print(jsonify(nominations))
+
+    return jsonify(nominations)
+
+
+@app.route("/nominations", methods=['POST'])
+def nominate_movie():
+    """Create a movie nomination."""
+
+    nominator = request.json.get("nominator")
+    title = request.json.get("title")
+    release_year = request.json.get("year")
+    poster = request.json.get("poster")
+    imdb_id = request.json.get("imdb_id")
+
+    nomination = crud.create_nomination(
+        title, 
+        release_year, 
+        poster, 
+        imdb_id, 
+        int(nominator)
+    )
+
+    return "Success" if nomination else "Error"
+
+
+@app.route("/nominations/delete/<imdb_id>")
+def delete_nomination(imdb_id):
+    """Remove a user's nomination."""
+
+    user_id = session['user_id']
+
+    result = crud.remove_nomination(imdb_id, user_id)
+
+    return result
 
 
 @app.route("/search/<movie_search_term>")

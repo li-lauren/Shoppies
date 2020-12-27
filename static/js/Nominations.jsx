@@ -2,15 +2,19 @@
 
 const Nominations = ({numNominations, setNumNominations}) => {
     const [nominations, setNominations] = useState(null);
+    const userId = localStorage.getItem('user')
 
     useEffect(() => {
         getNominations();
     }, [numNominations]);
 
     const getNominations = () => {
-        fetch('/nominations')
+        fetch(`/nominations/${userId}`)
         .then(res => res.json())
-        .then(data => setNominations(data));
+        .then(data => {
+            console.log(data)
+            setNominations(data)
+        });
     };
 
     return (

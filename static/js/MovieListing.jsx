@@ -23,7 +23,8 @@ const MovieListing = ({movie, numNominations, setNumNominations}) => {
                 'title' : movie.Title,
                 'year' : movie.Year,
                 'poster' : movie.Poster,
-                'imdb_id' : imdbID
+                'imdb_id' : imdbID, 
+                'nominator': localStorage.getItem('user')
             })
         };
 
